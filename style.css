@@ -1098,4 +1098,8 @@ footer::before {
         width: auto;
         flex: 2;
     }
+    /* Стиль для иконки CatWar в подвале */
+.social-link.catwar:hover {
+    background: #6b3e8f;
+}
 }
