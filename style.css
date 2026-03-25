@@ -1,0 +1,758 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #4a2a2a;
+    background: linear-gradient(135deg, #fff5e6 0%, #ffe6f0 50%, #fff0e0 100%);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Шапка сайта */
+header {
+    background: linear-gradient(135deg, #f5a623 0%, #f97316 30%, #c026d3 70%, #8b5cf6 100%);
+    color: #fff;
+    text-align: center;
+    padding: 2rem 1rem;
+    box-shadow: 0 4px 20px rgba(245, 166, 35, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,200,100,0.2) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    letter-spacing: 2px;
+}
+
+/* Навигация */
+nav {
+    margin-top: 1.5rem;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.price-btn {
+    background: linear-gradient(135deg, #f5a623, #f97316);
+    padding: 0.7rem 2rem;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+}
+
+.price-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(249, 115, 22, 0.6);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0;
+    padding: 0.6rem 1.5rem;
+    border-radius: 30px;
+    transition: all 0.3s;
+    font-weight: 500;
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(5px);
+}
+
+nav a i {
+    margin-right: 0.5rem;
+}
+
+nav a:hover, nav a.active {
+    background: #f97316;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.5);
+}
+
+/* Основной контент */
+main {
+    flex: 1;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.page-title i {
+    font-size: 1.8rem;
+    color: #f97316;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+}
+
+.page-title h2 {
+    font-size: 2.2rem;
+    color: #c026d3;
+    margin: 0;
+}
+
+/* Галерея */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(192, 38, 211, 0.15);
+    transition: all 0.4s;
+    border: 1px solid #ffd966;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(249, 115, 22, 0.25);
+}
+
+.card-image {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(245, 166, 35, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.card-image:hover .card-overlay {
+    opacity: 1;
+}
+
+.card-overlay i {
+    font-size: 2.5rem;
+    color: #fff;
+    transform: scale(0.8);
+    transition: transform 0.3s;
+}
+
+.card-image:hover .card-overlay i {
+    transform: scale(1);
+}
+
+/* Категории */
+.category {
+    margin-bottom: 3rem;
+}
+
+.category h3 {
+    font-size: 1.8rem;
+    margin: 1.5rem 0 1.5rem;
+    color: #c026d3;
+    border-bottom: 3px solid #f97316;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+/* Прайс-лист */
+.price-note {
+    background: linear-gradient(135deg, #fff0e0 0%, #ffe6f0 100%);
+    border-left: 4px solid #f97316;
+    padding: 1.2rem;
+    margin-bottom: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.price-note i {
+    font-size: 1.5rem;
+    color: #f97316;
+}
+
+.price-note p {
+    margin: 0;
+    font-size: 1rem;
+    color: #4a2a2a;
+}
+
+.specialization {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.specialization span {
+    background: linear-gradient(135deg, #f5a623 0%, #f97316 50%, #c026d3 100%);
+    color: #fff;
+    padding: 0.7rem 1.8rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(245, 166, 35, 0.3);
+    transition: all 0.3s;
+    cursor: default;
+}
+
+.specialization span:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(249, 115, 22, 0.4);
+}
+
+.specialization span i {
+    margin-right: 0.6rem;
+}
+
+.price-info {
+    text-align: center;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: #c026d3;
+    background: rgba(249, 115, 22, 0.1);
+    padding: 0.8rem;
+    border-radius: 50px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.price-info i {
+    font-size: 1.2rem;
+    color: #f97316;
+}
+
+.price-info p {
+    margin: 0;
+}
+
+.price-category {
+    margin-bottom: 2rem;
+}
+
+.price-category h3 {
+    font-size: 1.4rem;
+    margin: 1.8rem 0 1rem;
+    color: #c026d3;
+    border-bottom: 2px solid #f97316;
+    padding-bottom: 0.4rem;
+    display: inline-block;
+}
+
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(192, 38, 211, 0.1);
+    margin-bottom: 1.5rem;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.price-table th, .price-table td {
+    border: 1px solid #ffd966;
+    padding: 12px 16px;
+    text-align: left;
+}
+
+.price-table th {
+    background: linear-gradient(135deg, #f5a623 0%, #f97316 100%);
+    color: #fff;
+    font-weight: 600;
+}
+
+.price-table tr:nth-child(even) {
+    background: #fff5e6;
+}
+
+.price-table tr:hover {
+    background: #ffe6f0;
+    transition: background 0.2s;
+}
+
+.background-table td:first-child {
+    font-weight: 500;
+    background: #fff5e6;
+}
+
+/* Информационные блоки */
+.info-block {
+    background: #fff;
+    border-radius: 20px;
+    padding: 1.8rem;
+    margin: 2rem 0;
+    box-shadow: 0 8px 24px rgba(245, 166, 35, 0.1);
+    border: 1px solid #ffd966;
+    transition: transform 0.3s;
+}
+
+.info-block:hover {
+    transform: translateY(-3px);
+}
+
+.info-block h3 {
+    border-bottom: none;
+    margin-top: 0;
+    display: block;
+    color: #f97316;
+    margin-bottom: 1rem;
+}
+
+.info-block h3 i {
+    margin-right: 0.6rem;
+    color: #f5a623;
+}
+
+.info-block ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.info-block li {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid #ffe6f0;
+}
+
+.info-block li:last-child {
+    border-bottom: none;
+}
+
+.info-block li i {
+    margin-right: 0.8rem;
+    color: #f97316;
+    width: 1.6rem;
+}
+
+.payment-methods {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.8rem;
+}
+
+.payment-methods span {
+    background: linear-gradient(135deg, #fff0e0 0%, #ffe6f0 100%);
+    padding: 0.6rem 1.3rem;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    color: #c026d3;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.payment-methods span:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(249, 115, 22, 0.2);
+}
+
+.payment-methods span i {
+    margin-right: 0.5rem;
+    color: #f97316;
+}
+
+/* Стили для лобби */
+.welcome-block {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.welcome-block i {
+    display: none;
+}
+
+.welcome-block h3 {
+    color: #c026d3;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.welcome-block p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.tools-block {
+    text-align: center;
+}
+
+.tools-list {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.tools-list p {
+    background: linear-gradient(135deg, #fff0e0, #ffe6f0);
+    padding: 0.8rem 1.5rem;
+    border-radius: 20px;
+    border: 1px solid #ffd966;
+    font-size: 1rem;
+}
+
+.tools-list i {
+    margin-right: 0.5rem;
+    color: #f97316;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.info-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s;
+    border: 1px solid #ffd966;
+    box-shadow: 0 4px 12px rgba(245, 166, 35, 0.1);
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+}
+
+.info-card i {
+    font-size: 2rem;
+    color: #f97316;
+    margin-bottom: 1rem;
+}
+
+.info-card h3 {
+    color: #c026d3;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.info-card p {
+    font-size: 0.9rem;
+    color: #4a2a2a;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.info-link {
+    display: inline-block;
+    color: #f97316;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.info-link:hover {
+    color: #c026d3;
+}
+
+/* Стили для Minecraft страницы */
+.minecraft-info {
+    background: linear-gradient(135deg, #fff0e0 0%, #ffe6f0 100%);
+    border: 1px solid #f97316;
+}
+
+.minecraft-info h3 {
+    color: #f97316;
+}
+
+.minecraft-info li {
+    color: #4a2a2a;
+    border-bottom-color: #ffd966;
+}
+
+.minecraft-info li i {
+    color: #f5a623;
+}
+
+/* Стили для переключаемых разделов CatWar */
+.section-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background: rgba(249, 115, 22, 0.2);
+    border: 2px solid #f97316;
+    color: #c026d3;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: inherit;
+}
+
+.tab-btn:hover {
+    background: #f97316;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg, #f5a623, #f97316);
+    color: white;
+    border-color: #f5a623;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+}
+
+.section-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.section-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Подвал */
+footer {
+    background: linear-gradient(135deg, #f5a623 0%, #f97316 50%, #c026d3 100%);
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 3rem;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 40px;
+    transition: all 0.3s;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(5px);
+}
+
+.social-link i {
+    font-size: 1.3rem;
+}
+
+.social-link span {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.social-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+.social-link.vk:hover {
+    background: #4c75a3;
+}
+
+.social-link.telegram:hover {
+    background: #26a5e4;
+}
+
+/* Убираем ненужные элементы */
+.contact-note {
+    display: none;
+}
+
+.catwar-info {
+    display: none;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .page-title h2 {
+        font-size: 1.6rem;
+    }
+    
+    .page-title i {
+        font-size: 1.2rem;
+    }
+    
+    nav a {
+        display: inline-block;
+        margin: 0.2rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .price-btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .card-image img {
+        height: 200px;
+    }
+    
+    .price-table th, .price-table td {
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
+    
+    .specialization {
+        gap: 1rem;
+    }
+    
+    .specialization span {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.85rem;
+    }
+    
+    .background-table {
+        font-size: 0.75rem;
+    }
+    
+    .background-table th,
+    .background-table td {
+        padding: 6px 4px;
+    }
+    
+    .social-link {
+        padding: 0.5rem 1.2rem;
+    }
+    
+    .social-link span {
+        display: inline;
+    }
+    
+    .category h3 {
+        font-size: 1.4rem;
+    }
+    
+    .info-block {
+        padding: 1.2rem;
+    }
+    
+    .payment-methods span {
+        padding: 0.4rem 1rem;
+        font-size: 0.8rem;
+    }
+    
+    .tools-list {
+        gap: 1rem;
+    }
+    
+    .tools-list p {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tab-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .welcome-block h3 {
+        font-size: 1.4rem;
+    }
+    
+    .welcome-block p {
+        font-size: 0.95rem;
+    }
+}
