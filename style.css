@@ -30,41 +30,6 @@ body::before {
     z-index: -1;
 }
 
-/* Плавающие звёздочки на фоне */
-.floating-bg-stars {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 0;
-}
-
-.floating-bg-stars i {
-    position: absolute;
-    color: rgba(249, 115, 22, 0.2);
-    font-size: 0.7rem;
-    animation: floatBgStar 20s linear infinite;
-}
-
-.floating-bg-stars i:nth-child(1) { top: 10%; left: 20%; animation-duration: 22s; }
-.floating-bg-stars i:nth-child(2) { top: 30%; left: 85%; animation-duration: 26s; font-size: 0.9rem; }
-.floating-bg-stars i:nth-child(3) { top: 70%; left: 15%; animation-duration: 30s; }
-.floating-bg-stars i:nth-child(4) { top: 50%; left: 45%; animation-duration: 24s; font-size: 0.8rem; }
-.floating-bg-stars i:nth-child(5) { top: 85%; left: 70%; animation-duration: 28s; }
-.floating-bg-stars i:nth-child(6) { top: 15%; left: 60%; animation-duration: 18s; }
-.floating-bg-stars i:nth-child(7) { top: 60%; left: 90%; animation-duration: 32s; }
-.floating-bg-stars i:nth-child(8) { top: 40%; left: 10%; animation-duration: 35s; }
-
-@keyframes floatBgStar {
-    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-    10% { opacity: 0.6; }
-    80% { opacity: 0.6; }
-    100% { transform: translateY(-100px) rotate(180deg); opacity: 0; }
-}
-
 /* Шапка сайта */
 header {
     background: linear-gradient(135deg, #6b3e8f 0%, #9b4d96 70%, #b87cdb 100%);
@@ -341,90 +306,6 @@ main {
     transform: scale(1);
 }
 
-/* Модальное окно */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.95);
-    z-index: 9999;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    backdrop-filter: blur(5px);
-}
-
-.modal-content {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain;
-    border-radius: 16px;
-    box-shadow: 0 0 40px rgba(249, 115, 22, 0.4);
-    animation: zoomIn 0.3s ease;
-    cursor: default;
-}
-
-@keyframes zoomIn {
-    from { transform: scale(0.8); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
-
-.close-modal {
-    position: absolute;
-    top: 25px;
-    right: 35px;
-    color: #fff;
-    font-size: 45px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s;
-    z-index: 10000;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: rgba(0,0,0,0.5);
-}
-
-.close-modal:hover {
-    color: #f97316;
-    transform: rotate(90deg) scale(1.1);
-    background: rgba(0,0,0,0.8);
-}
-
-/* Декоративная рамка вокруг модального окна */
-.modal::before {
-    content: '✦';
-    position: absolute;
-    top: 20px;
-    left: 30px;
-    font-size: 2rem;
-    color: #ffd966;
-    opacity: 0.5;
-    animation: pulseStar 2s ease-in-out infinite;
-}
-
-.modal::after {
-    content: '✦';
-    position: absolute;
-    bottom: 20px;
-    right: 30px;
-    font-size: 2rem;
-    color: #ffd966;
-    opacity: 0.5;
-    animation: pulseStar 2s ease-in-out infinite;
-}
-
-@keyframes pulseStar {
-    0%, 100% { opacity: 0.3; transform: scale(1); }
-    50% { opacity: 0.8; transform: scale(1.1); }
-}
-
 /* Категории */
 .category {
     margin-bottom: 3rem;
@@ -469,105 +350,60 @@ main {
 
 /* Прайс-лист */
 .price-note {
-    background: linear-gradient(135deg, #faf5ff 0%, #f5eaff 100%);
-    border-left: 4px solid #f97316;
-    padding: 1.2rem;
-    margin-bottom: 2rem;
-    border-radius: 16px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.price-note::before {
-    content: '✨';
-    position: absolute;
-    left: 15px;
-    top: 10px;
-    font-size: 1rem;
-    opacity: 0.5;
-    animation: float 3s ease-in-out infinite;
-}
-
-.price-note::after {
-    content: '✨';
-    position: absolute;
-    right: 15px;
-    bottom: 10px;
-    font-size: 1rem;
-    opacity: 0.5;
-    animation: float 3s ease-in-out infinite reverse;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-}
-
-.specialization {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
+    background: #fff;
+    border-radius: 20px;
+    padding: 1.8rem;
     margin: 2rem 0;
-    flex-wrap: wrap;
-}
-
-.specialization span {
-    background: linear-gradient(135deg, #6b3e8f 0%, #9b4d96 100%);
-    color: #fff;
-    padding: 0.7rem 1.8rem;
-    border-radius: 50px;
-    font-size: 1rem;
-    box-shadow: 0 4px 12px rgba(107, 62, 143, 0.3);
+    box-shadow: 0 8px 24px rgba(107, 62, 143, 0.1);
+    border: 1px solid #e9d4ff;
     transition: all 0.3s;
-    cursor: default;
     position: relative;
     overflow: hidden;
-}
-
-.specialization span::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,215,0,0.3), transparent);
-    transition: left 0.5s;
-}
-
-.specialization span:hover::before {
-    left: 100%;
-}
-
-.specialization span:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 16px rgba(155, 77, 150, 0.4);
-}
-
-.specialization span i {
-    margin-right: 0.6rem;
-}
-
-.price-info {
     text-align: center;
-    margin-bottom: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    color: #6b3e8f;
-    background: rgba(155, 77, 150, 0.1);
-    padding: 0.8rem;
-    border-radius: 50px;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-.price-info i {
-    font-size: 1.2rem;
+.price-note .decor-line {
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #6b3e8f, #f5a623, #f97316, #6b3e8f, transparent);
+    margin: 1rem auto;
+    border-radius: 2px;
+}
+
+.price-note p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: #4a2a4a;
+}
+
+.price-note strong {
     color: #f97316;
+}
+
+/* Ряд из трёх таблиц */
+.price-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    justify-content: center;
+}
+
+.price-row .price-category {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 0;
+}
+
+.price-category.full-width {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.price-category {
+    margin-bottom: 2rem;
 }
 
 .price-category h3 {
@@ -577,6 +413,10 @@ main {
     border-bottom: 2px solid #f97316;
     padding-bottom: 0.4rem;
     display: inline-block;
+}
+
+.price-row .price-category h3 {
+    margin-top: 0;
 }
 
 .price-table {
@@ -608,6 +448,11 @@ main {
 .price-table tr:hover {
     background: #fff0e0;
     transition: background 0.2s;
+}
+
+.background-table td:first-child {
+    font-weight: 500;
+    background: #faf5ff;
 }
 
 /* Информационные блоки */
@@ -661,6 +506,26 @@ main {
 .info-block h3 i {
     margin-right: 0.6rem;
     color: #f5a623;
+}
+
+.info-block ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.info-block li {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid #f0e6ff;
+}
+
+.info-block li:last-child {
+    border-bottom: none;
+}
+
+.info-block li i {
+    margin-right: 0.8rem;
+    color: #f97316;
+    width: 1.6rem;
 }
 
 .payment-methods {
@@ -962,10 +827,70 @@ footer::before {
     background: #26a5e4;
 }
 
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 16px;
+    box-shadow: 0 0 40px rgba(249, 115, 22, 0.4);
+    animation: zoomIn 0.3s ease;
+    cursor: default;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close-modal {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    color: #fff;
+    font-size: 45px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 10000;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.5);
+}
+
+.close-modal:hover {
+    color: #f97316;
+    transform: rotate(90deg) scale(1.1);
+    background: rgba(0,0,0,0.8);
+}
+
 /* Адаптивность */
 @media (max-width: 992px) {
     .gallery {
         column-count: 2;
+    }
+    
+    .price-row {
+        gap: 1rem;
     }
 }
 
@@ -992,18 +917,45 @@ footer::before {
         column-count: 1;
     }
     
+    .price-row {
+        flex-direction: column;
+    }
+    
+    .price-row .price-category {
+        width: 100%;
+    }
+    
+    .price-note {
+        padding: 1.2rem;
+    }
+    
+    .price-note p {
+        font-size: 0.95rem;
+    }
+    
     .price-table th, .price-table td {
         padding: 8px 10px;
         font-size: 0.85rem;
     }
     
-    .specialization {
-        gap: 1rem;
+    .category h3::before,
+    .category h3::after {
+        display: none;
     }
     
-    .specialization span {
-        padding: 0.5rem 1.2rem;
-        font-size: 0.85rem;
+    .close-modal {
+        top: 15px;
+        right: 20px;
+        font-size: 35px;
+    }
+    
+    .info-block {
+        padding: 1.2rem;
+    }
+    
+    .payment-methods span {
+        padding: 0.4rem 1rem;
+        font-size: 0.8rem;
     }
     
     .tools-list {
@@ -1024,88 +976,11 @@ footer::before {
         font-size: 0.9rem;
     }
     
-    .category h3::before,
-    .category h3::after {
-        display: none;
+    .welcome-block h3 {
+        font-size: 1.4rem;
     }
     
-    .close-modal {
-        top: 15px;
-        right: 20px;
-        font-size: 35px;
+    .welcome-block p {
+        font-size: 0.95rem;
     }
-    /* Первый блок как на главной */
-.price-note {
-    background: #fff;
-    border-radius: 20px;
-    padding: 1.8rem;
-    margin: 2rem 0;
-    box-shadow: 0 8px 24px rgba(107, 62, 143, 0.1);
-    border: 1px solid #e9d4ff;
-    transition: all 0.3s;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-}
-
-.price-note .decor-line {
-    width: 100px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #6b3e8f, #f5a623, #f97316, #6b3e8f, transparent);
-    margin: 1rem auto;
-    border-radius: 2px;
-}
-
-.price-note p {
-    font-size: 1.1rem;
-    max-width: 800px;
-    margin: 0 auto;
-    line-height: 1.6;
-    color: #4a2a4a;
-}
-
-.price-note strong {
-    color: #f97316;
-}
-
-/* Ряд из трёх таблиц */
-.price-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    margin: 2rem 0;
-    justify-content: center;
-}
-
-.price-row .price-category {
-    flex: 1;
-    min-width: 250px;
-    margin-bottom: 0;
-}
-
-.price-category.full-width {
-    width: 100%;
-    margin-top: 2rem;
-}
-
-/* Убираем лишние отступы у заголовков в ряду */
-.price-row .price-category h3 {
-    margin-top: 0;
-}
-
-@media (max-width: 992px) {
-    .price-row {
-        gap: 1rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .price-row {
-        flex-direction: column;
-    }
-    
-    .price-row .price-category {
-        width: 100%;
-    }
-}
 }
