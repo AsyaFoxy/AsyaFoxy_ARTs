@@ -1034,4 +1034,104 @@ footer::before {
         right: 20px;
         font-size: 35px;
     }
+    /* Красивый первый блок прайс-листа */
+.price-hero {
+    background: linear-gradient(135deg, #6b3e8f 0%, #9b4d96 50%, #b87cdb 100%);
+    border-radius: 30px;
+    padding: 2rem;
+    margin: 2rem 0 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(107, 62, 143, 0.3);
+}
+
+.price-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,200,0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+}
+
+.price-hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.price-hero-icon {
+    margin-bottom: 1rem;
+}
+
+.price-hero-icon i {
+    font-size: 1.8rem;
+    color: #ffd966;
+    margin: 0 0.5rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.price-hero-icon i:nth-child(2) {
+    font-size: 2rem;
+    animation-delay: 0.3s;
+}
+
+.price-hero h2 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 1.2rem;
+    line-height: 1.4;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.price-hero .highlight {
+    background: linear-gradient(135deg, #ffd966, #f5a623);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: none;
+    font-weight: bold;
+}
+
+.price-hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(5px);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    margin-bottom: 1.2rem;
+}
+
+.price-hero-badge span {
+    color: #ffd966;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.price-hero-decor i {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.5);
+    margin: 0 0.3rem;
+}
+
+@media (max-width: 768px) {
+    .price-hero {
+        padding: 1.5rem;
+    }
+    
+    .price-hero h2 {
+        font-size: 1.1rem;
+    }
+    
+    .price-hero-icon i {
+        font-size: 1.2rem;
+    }
+    
+    .price-hero-badge span {
+        font-size: 0.8rem;
+    }
+}
 }
