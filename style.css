@@ -1134,4 +1134,34 @@ footer::before {
         font-size: 0.8rem;
     }
 }
+    /* Ряд из трёх таблиц */
+.price-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    justify-content: center;
+}
+
+.price-row .price-category {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 0;
+}
+
+.price-category.full-width {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .price-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .price-row .price-category {
+        width: 100%;
+    }
+}
 }
