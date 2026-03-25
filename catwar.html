@@ -10,13 +10,23 @@
 <body>
     <header>
         <div class="header-content">
-            <h1>Ася Фокс</h1>
+            <div class="logo-icon">
+                <i class="fas fa-fox"></i>
+                <i class="fas fa-cat"></i>
+            </div>
+            <div class="floating-stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
         </div>
         <nav>
             <a href="price.html" class="price-btn"><i class="fas fa-tags"></i> Прайс-лист</a>
             <div class="nav-links">
                 <a href="index.html"><i class="fas fa-home"></i> Главная</a>
-                <a href="gallery.html"><i class="fas fa-palette"></i> Галерея</a>
+                <a href="gallery.html"><i class="fas fa-palette"></i> Иллюстрации</a>
                 <a href="minecraft.html"><i class="fas fa-cube"></i> Minecraft</a>
                 <a href="catwar.html" class="active"><i class="fas fa-cat"></i> CatWar</a>
             </div>
@@ -31,8 +41,8 @@
         </div>
 
         <div class="section-tabs">
-            <button class="tab-btn active" data-tab="new">Новые модельки</button>
-            <button class="tab-btn" data-tab="old">Старые модельки</button>
+            <button class="tab-btn active" data-tab="new">✨ Новые модельки</button>
+            <button class="tab-btn" data-tab="old">📜 Старые модельки</button>
         </div>
 
         <div id="new" class="section-content active">
@@ -84,37 +94,4 @@
             <div class="category"><h3>Предметы</h3>
                 <div class="gallery">
                     <div class="card"><div class="card-image"><img src="https://via.placeholder.com/400x400?text=Old+Item+1"><div class="card-overlay"><i class="fas fa-search-plus"></i></div></div></div>
-                    <div class="card"><div class="card-image"><img src="https://via.placeholder.com/400x400?text=Old+Item+2"><div class="card-overlay"><i class="fas fa-search-plus"></i></div></div></div>
-                    <div class="card"><div class="card-image"><img src="https://via.placeholder.com/400x400?text=Old+Item+3"><div class="card-overlay"><i class="fas fa-search-plus"></i></div></div></div>
-                </div>
-            </div>
-            <div class="category"><h3>Медали</h3>
-                <div class="gallery">
-                    <div class="card"><div class="card-image"><img src="https://via.placeholder.com/400x400?text=Old+Medal+1"><div class="card-overlay"><i class="fas fa-search-plus"></i></div></div></div>
-                    <div class="card"><div class="card-image"><img src="https://via.placeholder.com/400x400?text=Old+Medal+2"><div class="card-overlay"><i class="fas fa-search-plus"></i></div></div></div>
-                    <div class="card"><div class="card-image"><img src="https://via.placeholder.com/400x400?text=Old+Medal+3"><div class="card-overlay"><i class="fas fa-search-plus"></i></div></div></div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <footer>
-        <div class="social-icons">
-            <a href="https://vk.com/club159753129" target="_blank" class="social-link vk" aria-label="ВКонтакте">
-                <i class="fab fa-vk"></i>
-                <span>VK</span>
-            </a>
-            <a href="https://t.me/AsyaF0xy" target="_blank" class="social-link telegram" aria-label="Telegram">
-                <i class="fab fa-telegram-plane"></i>
-                <span>Telegram</span>
-            </a>
-        </div>
-    </footer>
-
-    <script>
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const sections = { new: document.getElementById('new'), old: document.getElementById('old') };
-        tabBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const tabId = btn.getAttribute('data-tab');
-               
+                    <div class="card"><div class="card-image"><img src="https://via.placeholder.com/400x400?text=Old+Item+2"><div class="card-overlay"><i class="fas fa-search-plus"></
