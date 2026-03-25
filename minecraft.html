@@ -10,16 +10,14 @@
 <body>
     <header>
         <div class="header-content">
-            <div class="logo-icon">
-                <i class="fas fa-fox"></i>
+            <div class="page-title-header">
                 <i class="fas fa-cube"></i>
-            </div>
-            <div class="floating-stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
+                <h1>Minecraft</h1>
+                <div class="floating-stars-header">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
             </div>
         </div>
         <nav>
@@ -34,12 +32,6 @@
     </header>
 
     <main>
-        <div class="page-title">
-            <i class="fas fa-star"></i>
-            <h2>Майнкрафт</h2>
-            <i class="fas fa-star"></i>
-        </div>
-
         <div class="category"><h3>Скины</h3>
             <div class="gallery">
                 <div class="card"><div class="card-image"><img src="https://via.placeholder.com/400x400?text=Skin+1"><div class="card-overlay"><i class="fas fa-search-plus"></i></div></div></div>
@@ -47,7 +39,6 @@
                 <div class="card"><div class="card-image"><img src="https://via.placeholder.com/400x400?text=Skin+3"><div class="card-overlay"><i class="fas fa-search-plus"></i></div></div></div>
             </div>
         </div>
-
         <div class="category"><h3>Модели</h3>
             <div class="gallery">
                 <div class="card"><div class="card-image"><img src="https://via.placeholder.com/400x400?text=Player+1"><div class="card-overlay"><i class="fas fa-search-plus"></i></div></div></div>
@@ -56,7 +47,6 @@
                 <div class="card"><div class="card-image"><img src="https://via.placeholder.com/400x400?text=Player+4"><div class="card-overlay"><i class="fas fa-search-plus"></i></div></div></div>
             </div>
         </div>
-
         <div class="category"><h3>Блоки</h3>
             <div class="gallery">
                 <div class="card"><div class="card-image"><img src="https://via.placeholder.com/400x400?text=Item+1"><div class="card-overlay"><i class="fas fa-search-plus"></i></div></div></div>
@@ -64,58 +54,34 @@
                 <div class="card"><div class="card-image"><img src="https://via.placeholder.com/400x400?text=Item+3"><div class="card-overlay"><i class="fas fa-search-plus"></i></div></div></div>
             </div>
         </div>
-
         <div class="info-block minecraft-info glow-effect">
             <h3><i class="fas fa-info-circle"></i> Информация</h3>
-            <ul>
-                <li><i class="fas fa-cube"></i> Модели создаются в <strong>Blockbench</strong></li>
-                <li><i class="fas fa-child"></i> Модели игроков анимируются в моде <strong>CPM</strong></li>
-                <li><i class="fas fa-palette"></i> Делаю: скины, модели игроков, мобов, предметов, блоков</li>
-            </ul>
+            <ul><li><i class="fas fa-cube"></i> Модели создаются в <strong>Blockbench</strong></li>
+            <li><i class="fas fa-child"></i> Модели игроков анимируются в моде <strong>CPM</strong></li>
+            <li><i class="fas fa-palette"></i> Делаю: скины, модели игроков, мобов, предметов, блоков</li></ul>
         </div>
     </main>
 
     <footer>
         <div class="social-icons">
-            <a href="https://vk.com/club159753129" target="_blank" class="social-link vk" aria-label="ВКонтакте">
-                <i class="fab fa-vk"></i>
-                <span>VK</span>
-            </a>
-            <a href="https://t.me/AsyaF0xy" target="_blank" class="social-link telegram" aria-label="Telegram">
-                <i class="fab fa-telegram-plane"></i>
-                <span>Telegram</span>
-            </a>
+            <a href="https://vk.com/club159753129" target="_blank" class="social-link vk"><i class="fab fa-vk"></i><span>VK</span></a>
+            <a href="https://t.me/AsyaF0xy" target="_blank" class="social-link telegram"><i class="fab fa-telegram-plane"></i><span>Telegram</span></a>
         </div>
     </footer>
 
-    <!-- Модальное окно для увеличения изображений -->
     <div id="imageModal" class="modal">
         <span class="close-modal">&times;</span>
         <img class="modal-content" id="modalImage">
     </div>
-
     <script>
         const modal = document.getElementById('imageModal');
         const modalImg = document.getElementById('modalImage');
         const closeModal = document.querySelector('.close-modal');
-        
         document.querySelectorAll('.card-image img').forEach(img => {
-            img.addEventListener('click', () => {
-                modal.style.display = 'flex';
-                modalImg.src = img.src;
-                modalImg.alt = img.alt;
-            });
+            img.addEventListener('click', () => { modal.style.display = 'flex'; modalImg.src = img.src; modalImg.alt = img.alt; });
         });
-        
-        closeModal.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-        
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
+        closeModal.addEventListener('click', () => { modal.style.display = 'none'; });
+        modal.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
     </script>
 </body>
 </html>
