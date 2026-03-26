@@ -842,6 +842,24 @@ main {
     color: #f97316;
 }
 
+/* Специальные стили для CatWar — уменьшаем изображения */
+.catwar-image {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background: #f5f0e8;
+    padding: 1rem 0 !important;
+}
+
+.catwar-image img {
+    width: 50% !important;
+    max-width: 200px !important;
+    height: auto !important;
+    display: block !important;
+    border-radius: 12px;
+    margin: 0 auto !important;
+}
+
 /* Подвал */
 footer {
     background: linear-gradient(135deg, #4a2a6b 0%, #6b3e8f 70%, #9b4d96 100%);
@@ -922,6 +940,10 @@ footer::before {
 
 .social-link.telegram:hover {
     background: #26a5e4;
+}
+
+.social-link.catwar:hover {
+    background: #6b3e8f;
 }
 
 /* Модальное окно */
@@ -1098,23 +1120,8 @@ footer::before {
         width: auto;
         flex: 2;
     }
-    /* Стиль для иконки CatWar в подвале */
-.social-link.catwar:hover {
-    background: #6b3e8f;
-}
-    /* Уменьшенные изображения для CatWar */
-.catwar-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #f5f0e8;
-    padding: 1rem 0;
-}
-
-.catwar-image img {
-    width: 50% !important;
-    height: auto !important;
-    display: block;
-    border-radius: 12px;
-}
+    
+    .catwar-image img {
+        max-width: 150px !important;
+    }
 }
