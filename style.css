@@ -1124,4 +1124,35 @@ footer::before {
     .catwar-image img {
         max-width: 150px !important;
     }
+    /* Разделитель для предметов и медалей */
+.separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 3rem 0 1.5rem;
+    color: #9b4d96;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.separator i {
+    color: #f97316;
+    font-size: 1rem;
+}
+
+.separator::before,
+.separator::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e9d4ff, transparent);
+}
+
+@media (max-width: 768px) {
+    .separator {
+        font-size: 1rem;
+        margin: 2rem 0 1rem;
+    }
+}
 }
