@@ -847,26 +847,60 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
-    margin: 3rem 0 1.5rem;
+    gap: 1.5rem;
+    margin: 4rem 0 2rem;
     color: #9b4d96;
-    font-size: 1.2rem;
-    font-weight: 500;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
 }
 
 .separator i {
     color: #f97316;
-    font-size: 1rem;
+    font-size: 1.3rem;
+    animation: pulse 2s ease-in-out infinite;
 }
 
 .separator::before,
 .separator::after {
     content: '';
     flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #e9d4ff, transparent);
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #6b3e8f, #f5a623, #f97316, #6b3e8f, transparent);
+    max-width: 200px;
 }
 
+.separator span {
+    background: linear-gradient(135deg, #6b3e8f, #9b4d96);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding: 0 0.5rem;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+}
+
+@media (max-width: 768px) {
+    .separator {
+        font-size: 1.1rem;
+        gap: 0.8rem;
+        margin: 2.5rem 0 1.5rem;
+    }
+    
+    .separator i {
+        font-size: 1rem;
+    }
+    
+    .separator::before,
+    .separator::after {
+        max-width: 100px;
+    }
+}
 /* Специальные стили для CatWar — уменьшаем изображения */
 .catwar-image {
     display: flex !important;
